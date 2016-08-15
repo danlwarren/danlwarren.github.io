@@ -17,7 +17,10 @@ I have broad interests across evolution, ecology, biogeography, and conservation
 
 For the most up-to-date information on what I've been doing, check [Google Scholar](http://scholar.google.com/citations?user=NTzu9c8AAAAJ&hl=en).  You can also check me out on [Orcid](http://orcid.org/0000-0002-8747-2451), [ResearcherID](http://www.researcherid.com/rid/B-3821-2010), or [Scopus](http://www.scopus.com/authid/detail.url?authorId=7202133982), but those are updated considerably less often.
 <br>
-
+<br>
+The following is scraped automatically from Google Scholar, and may contain errors depending on API changes, formatting issues, or the direction of the wind.  For an up-to-date and correct CV, [email me](mailto:dan.l.warren@gmail.com).
+<br>
+<br>
 ```{r citations, echo = FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60), results="asis"}
 library(rcrossref)
 library(pander)
@@ -52,8 +55,11 @@ library(scholar)
 # 
 # cites <- unlist(cr_cn(dois, format = "text"))
 
+ignore <- c("QIV2ME_5wuYC", "dhFuZR0502QC", "ULOm3_A8WrAC", "7PzlFSSx8tAC")
+
+
 cites <- get_publications(id = "NTzu9c8AAAAJ")
-cites <- cites[complete.cases(cites),]
+cites <- cites[-which(as.character(cites$pubid) %in% ignore),]
 cites <- cites[order(-cites$year),]
 
 formatted <- apply(cites, 1, function(x) paste0(x["author"], ". (", x["year"], "). ", x["title"], ". ", x["journal"], " ", x["number"], ".<br>Citations: <b>", x["cites"], "</b>"))
