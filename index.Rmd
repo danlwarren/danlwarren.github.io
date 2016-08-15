@@ -6,6 +6,20 @@ output:
     highlight: github
 ---
 
+
+<style>
+  .col2 {
+    columns: 2 200px;         /* number of columns and width in pixels*/
+    -webkit-columns: 2 200px; /* chrome, safari */
+    -moz-columns: 2 200px;    /* firefox */
+  }
+  .col3 {
+    columns: 3 100px;
+    -webkit-columns: 3 100px;
+    -moz-columns: 3 100px;
+  }
+</style>
+
 # About Me
 
 I have broad interests across evolution, ecology, biogeography, and conservation biology.  My primary research program focuses on using informatics approaches to answer large-scale questions in population biology, with a particular focus on species distribution models/environmental niche models.  I also have active research programs in phylogenetic methods and theory, and neuroecology of marine fishes.  I tend to do a lot of quantitative and computational methods development, and have developed several widely-used software packages for population biologists.
@@ -21,55 +35,39 @@ For the most up-to-date information on what I've been doing, check [Google Schol
 The following is scraped automatically from Google Scholar, and may contain errors depending on API changes, formatting issues, or the direction of the wind.  For an up-to-date and correct CV, [email me](mailto:dan.l.warren@gmail.com).
 <br>
 <br>
-```{r citations, echo = FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60), results="asis"}
+<div class="col2">
+```{r citeplot, echo = FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60), results="asis", fig.align="center"}
 library(rcrossref)
 library(pander)
 library(scholar)
 library(ggplot2)
 
-# Note to self: currently no doi for the new accepted gecko thing, check back
-
-# dois <- c("10.1093/gbe/evw171",
-#           "10.1111/geb.12455",
-#           "10.1111/gcb.13038",
-#           "10.1093/molbev/msv137",
-#           "10.1111/jeb.12631",
-#           "10.1016/j.tree.2014.08.003",
-#           "10.1111/ddi.12160",
-#           "10.1016/j.tree.2013.02.003",
-#           "10.1016/j.ympev.2012.07.020",
-#           "10.1016/j.tree.2012.03.010",
-#           "10.1111/j.1420-9101.2012.02503.x",
-#           "10.1093/gbe/evs013",
-#           "10.3374/014.052.0106",
-#           "10.1890/10-1171.1",
-#           "10.1073/pnas.1015806108",
-#           "10.1111/j.1558-5646.2010.01177.x",
-#           "10.1371/journal.pone.0015297",
-#           "10.1111/j.1600-0587.2009.06142.x",
-#           "10.3732/ajb.0900216",
-#           "10.1093/sysbio/syp019",
-#           "10.1111/j.1558-5646.2008.00482.x",
-#           "10.1093/bioinformatics/btm388",
-#           "10.1080/10635150500431155",
-#           "10.1021/bi983033o")
-# 
-# cites <- unlist(cr_cn(dois, format = "text"))
-
 ignore <- c("QIV2ME_5wuYC", "dhFuZR0502QC", "ULOm3_A8WrAC", "7PzlFSSx8tAC")
 
-
 cites.per.year <- get_citation_history(id = "NTzu9c8AAAAJ")
+
+cites <- get_publications(id = "NTzu9c8AAAAJ")
+
+# This hilariously convolted bit of code just gets the h.index from the cites df
+h.index <- max(which(1:nrow(cites) < cites[order(-cites$cites),"cites"]))
+  
+  
+
 # Casting years to character to facilitate plotting
 cites.per.year$year <- as.character(cites.per.year$year)
 ggplot(cites.per.year, aes(year, cites)) + theme_bw() + geom_bar(stat="identity") + xlab("Year") + ylab("Number of Citations")
-
+cat(paste("Total citations:   <b>", sum(as.numeric(cites.per.year$cites)), "</b>"))
+cat("<br>")
+cat(paste("h index:   <b>", h.index, "</b>"))
+cat("<br>")
+cat(paste("i-10 index:   <b>", length(which(cites$cites > 10)), "</b>"))
 cat("\n\n\n")
+```
+</div>
 
-cites <- get_publications(id = "NTzu9c8AAAAJ")
+```{r citations, echo = FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60), results="asis", fig.align="center"}
 cites <- cites[-which(as.character(cites$pubid) %in% ignore),]
 cites <- cites[order(-cites$year),]
-
 formatted <- apply(cites, 1, function(x) paste0(x["author"], ". (", x["year"], "). ", x["title"], ". ", x["journal"], " ", x["number"], ".<br>Citations: <b>", x["cites"], "</b>"))
 
 pandoc.list(formatted, loose = TRUE)
