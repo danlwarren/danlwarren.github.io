@@ -25,6 +25,7 @@ The following is scraped automatically from Google Scholar, and may contain erro
 library(rcrossref)
 library(pander)
 library(scholar)
+library(ggplot2)
 
 # Note to self: currently no doi for the new accepted gecko thing, check back
 
@@ -57,6 +58,13 @@ library(scholar)
 
 ignore <- c("QIV2ME_5wuYC", "dhFuZR0502QC", "ULOm3_A8WrAC", "7PzlFSSx8tAC")
 
+
+cites.per.year <- get_citation_history(id = "NTzu9c8AAAAJ")
+# Casting years to character to facilitate plotting
+cites.per.year$year <- as.character(cites.per.year$year)
+ggplot(cites.per.year, aes(year, cites)) + theme_bw() + geom_bar(stat="identity") + xlab("Year") + ylab("Number of Citations")
+
+cat("\n\n\n")
 
 cites <- get_publications(id = "NTzu9c8AAAAJ")
 cites <- cites[-which(as.character(cites$pubid) %in% ignore),]
