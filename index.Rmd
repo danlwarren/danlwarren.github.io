@@ -8,7 +8,7 @@ output:
     highlight: github
 ---
 
-## A New Output Format
+## Testing
 
 `html_pretty` in the [**prettydoc**](http://github.com/yixuan/prettydoc/)
 package is a new output format for creating HTML document from R Markdown files.
