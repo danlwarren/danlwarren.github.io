@@ -2,13 +2,21 @@
 title: "Dan Warren"
 output:
   prettydoc::html_pretty:
-    theme: architect
+    theme: cayman
     highlight: github
 ---
 
+# Research
+[Google Scholar](http://scholar.google.com/citations?user=NTzu9c8AAAAJ&hl=en)
+
+[Orcid](http://orcid.org/0000-0002-8747-2451)
+
+[ResearcherID](http://www.researcherid.com/rid/B-3821-2010)
+
+[Scopus](http://www.scopus.com/authid/detail.url?authorId=7202133982)
+
 
 # Publications (last updated `r Sys.Date()`)
-<br>
 ```{r citations, echo = FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60), results="asis"}
 library(rcrossref)
 library(pander)
@@ -16,46 +24,31 @@ library(pander)
 # Note to self: currently no doi for the new accepted gecko thing, check back
 
 dois <- c("10.1093/gbe/evw171",
-  "10.1111/geb.12455",
-  "10.1111/gcb.13038",
-  "10.1093/molbev/msv137",
-  "10.1111/jeb.12631",
-  "10.1016/j.tree.2014.08.003",
-  "10.1111/ddi.12160",
-  "10.1016/j.tree.2013.02.003",
-  "10.1016/j.ympev.2012.07.020",
-  "10.1016/j.tree.2012.03.010",
-  "10.1111/j.1420-9101.2012.02503.x",
-  "10.1093/gbe/evs013",
-  "10.3374/014.052.0106",
-  "10.1890/10-1171.1",
-  "10.1073/pnas.1015806108",
-  "10.1111/j.1558-5646.2010.01177.x",
-  "10.1371/journal.pone.0015297",
-  "10.1111/j.1600-0587.2009.06142.x",
-  "10.3732/ajb.0900216",
-  "10.1093/sysbio/syp019",
+          "10.1111/geb.12455",
+          "10.1111/gcb.13038",
+          "10.1093/molbev/msv137",
+          "10.1111/jeb.12631",
+          "10.1016/j.tree.2014.08.003",
+          "10.1111/ddi.12160",
+          "10.1016/j.tree.2013.02.003",
+          "10.1016/j.ympev.2012.07.020",
+          "10.1016/j.tree.2012.03.010",
+          "10.1111/j.1420-9101.2012.02503.x",
+          "10.1093/gbe/evs013",
+          "10.3374/014.052.0106",
+          "10.1890/10-1171.1",
+          "10.1073/pnas.1015806108",
+          "10.1111/j.1558-5646.2010.01177.x",
+          "10.1371/journal.pone.0015297",
+          "10.1111/j.1600-0587.2009.06142.x",
+          "10.3732/ajb.0900216",
+          "10.1093/sysbio/syp019",
           "10.1111/j.1558-5646.2008.00482.x",
           "10.1093/bioinformatics/btm388",
           "10.1080/10635150500431155",
           "10.1021/bi983033o")
-cites <- unlist(cr_cn(dois, format = "text"))
-# for(i in cites){
-#   cat(paste(strwrap(i)), "\n")
-#   cat("\n\n")
-# }
-pandoc.list(cites, loose = TRUE)
-# for(i in 1:length(cites)){
-#   #print(i)
-#   cat(paste0(i, ".  "))
-#   cat(paste(strwrap(cites[i])), "\n")
-#   cat("\n\n")
-# }
 
-# 
-# for(i in 1:length(dois)){
-#   cat(paste0(length(dois) - i + 1, ".  "))
-#   cat(paste(strwrap(cr_cn(dois[i], format = "text")), "\n"))
-#   cat("\n\n")
-# }
+cites <- unlist(cr_cn(dois, format = "text"))
+
+pandoc.list(cites, loose = TRUE)
 ```
