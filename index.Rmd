@@ -22,6 +22,21 @@ output:
 
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
+
+<div class="col2">
+![dan.ginger](images/dan.art.jpg)
+[Google Scholar](http://scholar.google.com/citations?user=NTzu9c8AAAAJ&hl=en)<br> 
+[Orcid](http://orcid.org/0000-0002-8747-2451)<br>
+[ResearcherID](http://www.researcherid.com/rid/B-3821-2010)<br>
+[Scopus](http://www.scopus.com/authid/detail.url?authorId=7202133982)<br>
+[GitHub (RWTY)](https://github.com/danlwarren/RWTY)<br>
+[GitHub (ENMTools)](https://github.com/danlwarren/ENMTools)<br>
+[Twitter](https://twitter.com/danlwarren)<br>
+[Blog](http://speciesinspace.com)<br>
+[Soundcloud](soundcloud.com/danwarren/tracks)<br><br>
+This is a piece street art by Ainsley Seago.  It's a depcition of me pointing at a fat cat named Ginger, and it's been up on the wall in Lyneham, ACT for several years now.  Lesson: if you spend enough time pointing at cats, the world will eventually recognize the skills.
+</div>
+
 # About Me
 
 I have broad interests across evolution, ecology, biogeography, and conservation biology.  My primary research program focuses on using informatics approaches to answer large-scale questions in population biology, with a particular focus on species distribution models/environmental niche models.  I also have active research programs in phylogenetic methods and theory, and neuroecology of marine fishes.  I tend to do a lot of quantitative and computational methods development, and have developed several widely-used software packages for population biologists.
