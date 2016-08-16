@@ -20,6 +20,8 @@ output:
   }
 </style>
 
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
 # About Me
 
 I have broad interests across evolution, ecology, biogeography, and conservation biology.  My primary research program focuses on using informatics approaches to answer large-scale questions in population biology, with a particular focus on species distribution models/environmental niche models.  I also have active research programs in phylogenetic methods and theory, and neuroecology of marine fishes.  I tend to do a lot of quantitative and computational methods development, and have developed several widely-used software packages for population biologists.
@@ -48,19 +50,20 @@ cites.per.year <- get_citation_history(id = "NTzu9c8AAAAJ")
 
 cites <- get_publications(id = "NTzu9c8AAAAJ")
 
-# This hilariously convolted bit of code just gets the h.index from the cites df
-h.index <- max(which(1:nrow(cites) < cites[order(-cites$cites),"cites"]))
+profile <- get_profile(id = "NTzu9c8AAAAJ")
   
-  
-
 # Casting years to character to facilitate plotting
 cites.per.year$year <- as.character(cites.per.year$year)
+
+# Plot cites per year
 ggplot(cites.per.year, aes(year, cites)) + theme_bw() + geom_bar(stat="identity") + xlab("Year") + ylab("Number of Citations")
-cat(paste("Total citations:   <b>", sum(as.numeric(cites.per.year$cites)), "</b>"))
+
+# Summary stats
+cat(paste("Total citations:   <b>", profile$total_cites, "</b>"))
 cat("<br>")
-cat(paste("h index:   <b>", h.index, "</b>"))
+cat(paste("h index:   <b>", profile$h_index, "</b>"))
 cat("<br>")
-cat(paste("i-10 index:   <b>", length(which(cites$cites > 10)), "</b>"))
+cat(paste("i-10 index:   <b>", profile$i10_index, "</b>"))
 cat("\n\n\n")
 ```
 </div>
@@ -68,7 +71,7 @@ cat("\n\n\n")
 ```{r citations, echo = FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60), results="asis", fig.align="center"}
 cites <- cites[-which(as.character(cites$pubid) %in% ignore),]
 cites <- cites[order(-cites$year),]
-formatted <- apply(cites, 1, function(x) paste0(x["author"], ". (", x["year"], "). ", x["title"], ". ", x["journal"], " ", x["number"], ".<br>Citations: <b>", x["cites"], "</b>"))
+formatted <- apply(cites, 1, function(x) paste0(x["author"], ". (", x["year"], "). ", x["title"], ". ", x["journal"], " ", x["number"], ".<br>Citations: <b>", x["cites"], "</b>", "<div class='altmetric-embed' data-badge-type='1' data-doi=\"", cr_works(query = paste(as.character(x[1:4]), collapse = " "))$data[1,"DOI"], "\"></div><br>"))
 
 pandoc.list(formatted, loose = TRUE)
 ```
