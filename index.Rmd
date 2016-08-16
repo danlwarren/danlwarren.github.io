@@ -26,7 +26,7 @@ output:
 
 I have broad interests across evolution, ecology, biogeography, and conservation biology.  My primary research program focuses on using informatics approaches to answer large-scale questions in population biology, with a particular focus on species distribution models/environmental niche models.  I also have active research programs in phylogenetic methods and theory, and neuroecology of marine fishes.  I tend to do a lot of quantitative and computational methods development, and have developed several widely-used software packages for population biologists.
 
-
+<br><br>
 
 
 # Publications (last updated `r Sys.Date()`)
