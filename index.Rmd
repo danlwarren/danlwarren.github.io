@@ -24,7 +24,7 @@ output:
 
 
 <div class="col2">
-![dan.ginger](images/dan.art.jpg)
+![dan.ginger](images/dan.art.jpg)<br><br>
 [Google Scholar](http://scholar.google.com/citations?user=NTzu9c8AAAAJ&hl=en)<br> 
 [Orcid](http://orcid.org/0000-0002-8747-2451)<br>
 [ResearcherID](http://www.researcherid.com/rid/B-3821-2010)<br>
@@ -34,7 +34,7 @@ output:
 [Twitter](https://twitter.com/danlwarren)<br>
 [Blog](http://speciesinspace.com)<br>
 [Soundcloud](soundcloud.com/danwarren/tracks)<br><br>
-This is a piece street art by Ainsley Seago.  It's a depcition of me pointing at a fat cat named Ginger, and it's been up on the wall in Lyneham, ACT for several years now.  Lesson: if you spend enough time pointing at cats, the world will eventually recognize the skills.
+This is a piece of street art by Ainsley Seago.  It's a depcition of me pointing at a fat cat named Ginger, and it's been up on the wall in Lyneham, ACT for several years now.  Lesson: if you spend enough time pointing at cats, the world will eventually recognize the skills.
 </div>
 
 # About Me
