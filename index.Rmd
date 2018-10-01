@@ -86,7 +86,7 @@ cat("\n\n\n")
 ```{r citations, echo = FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60), results="asis", fig.align="center"}
 cites <- cites[-which(as.character(cites$pubid) %in% ignore),]
 cites <- cites[order(-cites$year),]
-formatted <- apply(cites, 1, function(x) paste0(x["author"], ". (", x["year"], "). ", x["title"], ". ", x["journal"], " ", x["number"], ".<br>Citations: <b>", x["cites"], "</b>", "<div class='altmetric-embed' data-badge-type='1' data-doi=\"", cr_works(query = paste(as.character(x[1:4]), collapse = " "))$data[1,"DOI"], "\"></div><br>"))
+formatted <- apply(cites, 1, function(x) paste0(x["author"], ". (", x["year"], "). ", x["title"], ". ", x["journal"], " ", x["number"], ".<br>Citations: <b>", x["cites"], "</b>", "<div class='altmetric-embed' data-badge-type='1' data-doi=\"", cr_works(query = paste(as.character(x[1:4]), collapse = " "))$data[1,"doi"], "\"></div><br>"))
 
 pandoc.list(formatted, loose = FALSE)
 ```
