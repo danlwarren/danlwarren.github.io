@@ -33,7 +33,7 @@ output:
 [GitHub (ENMTools)](https://github.com/danlwarren/ENMTools)<br>
 [Twitter](https://twitter.com/danlwarren)<br>
 [Blog](http://speciesinspace.com)<br>
-[Soundcloud](soundcloud.com/danwarren/tracks)<br><br>
+[Soundcloud](http://soundcloud.com/danwarren/tracks)<br><br>
 Art by Ainsley Seago.  
 </div>
 
